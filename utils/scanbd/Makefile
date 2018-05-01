@@ -50,6 +50,12 @@ define Package/scanbd/description
  This package is a successor of scanbuttond.
 endef
 
+define Build/Configure
+	$(call Build/Configure/Default, \
+		--enable-scanbuttond \
+	)
+endef
+
 define Package/scanbd/install
 	$(INSTALL_DIR) $(1)/usr/sbin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/scanbd/scanbd $(1)/usr/sbin/
